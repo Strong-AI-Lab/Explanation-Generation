@@ -33,6 +33,14 @@ Way 2 verifier means that we use the whole question including question stem, eac
 python data_preprocessing_verifier_way2.py
 ~~~
 
+## Running script
+You can find the detail training script under `training_script.sh`. In this file, it includes the commands for the following functions.
+1. Convert the LLaMA model from meta to the huggingface version.
+2. Instruction tunning for LLaMA-7B using 4 A100 80 GB GPUs to replicate the Alpaca-7B.
+3. Train a generator using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
+4. Train a verifier way 1 using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
+5. Train a verifier way 2 using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
+
 ## Run the program
 To run the program to interact with generator and verifier way 1, you can run the following code. The code will call the method in `chat_generator.py` and `chat_verifier_way1.py`.
 ~~~bash
