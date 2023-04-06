@@ -24,11 +24,29 @@ python data_preprocessing_generator.py
 ### Data preprocessing before training a verifier using way 1. 
 Way 1 verifier means that we assume the question rating score is the explanation rating score. The input is the explanation and the output is the question rating score.
 ~~~bash
+Data Format for Way 1:
+Instruct: As an explanation verification expert, can you generate the rating score for the given explanation?
+
+Input: Explanation
+
+Output: Question average rating score
+~~~
+
+~~~bash
 python data_preprocessing_verifier_way1.py
 ~~~
 
 ### Data preprocessing before training a verifier using way 2
 Way 2 verifier means that we use the whole question including question stem, each option, answer and explanation as the input and the output is the question rating score. In this way, we avoid the assumption in way 1, while it may enlarge the length of the whole input. It is a more reasonable way at this stage.
+~~~bash
+Data Format for Way 2:
+Instruct: As a question rating verifier expert, can you generate the question rating score for the given input?
+
+Input: Question, Option A, Option B, Option C, Option D, Option E, Explanation
+
+Output: Question average rating score
+~~~
+
 ~~~bash
 python data_preprocessing_verifier_way2.py
 ~~~
