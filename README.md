@@ -70,6 +70,11 @@ To run the program to interact with generator and verifier way 2, you can run th
 python chat_explanation_verifier_way2.py
 ~~~
 
+## Potential Research Questions
+1. Save the models from different epochs and to see the explanation generation performance.
+2. Check the hyperparameter for model.generate function and to see how it will change the model output.
+3. Think about how to generate new data and teach model what explanation is better.
+
 ## System architecture
 https://drive.google.com/file/d/1m7FLEvTJnjxjqNRxCNnjzweYoWn43k4x/view?usp=sharing
 
