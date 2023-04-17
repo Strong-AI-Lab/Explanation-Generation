@@ -19,6 +19,7 @@ if flag == "Qiming-Alpaca":
     invitation = "Qiming-Alpaca: "
     human_invitation = "User: "
 elif flag == "ExplanationGenerator":
+    # load_model_name = "./llama_7B_hf/llama-7b/"
     # load_model_name = "./qiming_llama_7B_Cardiff_Sydney_merged_generator/"
     load_model_name = "./qiming_alpaca_7B_Cardiff_Sydney_merged_generator/"
     First_chat = "Explanation Generator: I am an expert in explantion generator, what questions can I help?"
