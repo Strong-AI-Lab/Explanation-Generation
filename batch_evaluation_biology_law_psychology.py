@@ -104,17 +104,17 @@ for i in tqdm(range(3)):
         msg = ""
         invitation = " Output: "
         if numAlts == 1:
-            msg = " Input: </s>" + " Given question: " + question + " </s> Option A: " + altA + " </s> The correct answer is Option " + answer + ". </s> "
+            msg = " Input:" + " Given question: " + question + " Option A: " + altA + " The correct answer is Option " + answer
         elif numAlts == 2:
-            msg = " Input: </s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> The correct answer is Option " + answer + ". </s> "
+            msg = " Input: Given question: " + question + " Option A: " + altA + " Option B: " + altB + " The correct answer is Option " + answer
         elif numAlts == 3:
-            msg = " Input: </s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> The correct answer is Option " + answer + ". </s> "
+            msg = " Input: Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " The correct answer is Option " + answer
         elif numAlts == 4:
-            msg = " Input: </s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> The correct answer is Option " + answer + ". </s> "
+            msg = " Input: Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " The correct answer is Option " + answer
         elif numAlts == 5:
-            msg = " Input: </s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> Option E: " + altE + " </s> The correct answer is Option " + answer + ". </s> "
+            msg = " Input: Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " Option E: " + altE + " The correct answer is Option " + answer
         
-        fulltext = "</s> Instruction: As an explanation generation expert, can you generate the explanation for the given input? \n\n" + \
+        fulltext = "Instruction: As an explanation generation expert, can you generate the explanation for the given input? \n\n" + \
         "\n\n".join([msg]) + "\n\n" + invitation            
         
         generated_text = ""

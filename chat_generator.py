@@ -10,7 +10,7 @@ import time
 model = None
 tokenizer = None
 generator = None
-os.environ["CUDA_VISIBLE_DEVICES"]="4"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 flag = "ExplanationGenerator" ## "Qiming-Alpaca", "ExplanationGenerator", "ExplanationVerifier"
 if flag == "Qiming-Alpaca":
@@ -21,7 +21,10 @@ if flag == "Qiming-Alpaca":
 elif flag == "ExplanationGenerator":
     # load_model_name = "./llama_7B_hf/llama-7b/"
     # load_model_name = "./qiming_llama_7B_Cardiff_Sydney_merged_generator/"
-    load_model_name = "./qiming_alpaca_7B_Cardiff_Sydney_merged_generator/"
+    # load_model_name = "./qiming_alpaca_7B_Cardiff_Sydney_merged_generator/"
+    # load_model_name = "./qiming_alpaca_7B_Cardiff_generator/"
+    # load_model_name = "./LLaMA_7B_Cardiff_generator/"
+    load_model_name = "./qiming_alpaca_7B/"
     First_chat = "Explanation Generator: I am an expert in explantion generator, what questions can I help?"
     invitation = " Output: "
     human_invitation = "User: "
@@ -63,12 +66,12 @@ def explanationGenerator(history, global_step, msg, global_score_tag, response):
     # input
     if global_step == 0:
         history.append(msg)
-        fulltext = "</s> Instruction: As an explanation generation expert, can you generate the explanation for the given input? \n\n" + \
+        fulltext = "Instruction: As an explanation generation expert, can you generate the explanation for the given input? \n\n" + \
         "\n\n".join(history) + "\n\n" + invitation
     else:
         #fulltext = "If you are a doctor, please answer the medical questions based on the patient's description. \n\n" + "\n\n".join(history) + "\n\n" + invitation
         # fulltext = "\n\n".join(history) + "\n\n" + invitation
-        fulltext = "</s> Instruction: Your last time verifier rating score for your explanation generation is " + str(global_score_tag) + " and the explanation you generated was " + response + " </s> As a explanation generation expert, can you generate a better explanation for the given input? \n\n" + \
+        fulltext = "Instruction: Your last time verifier rating score for your explanation generation is " + str(global_score_tag) + " and the explanation you generated was " + response + " As a explanation generation expert, can you generate a better explanation for the given input? \n\n" + \
             "\n\n".join(history) + "\n\n" + invitation        
     
     #print('SENDING==========')

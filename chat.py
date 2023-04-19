@@ -12,7 +12,7 @@ tokenizer = None
 generator = None
 os.environ["CUDA_VISIBLE_DEVICES"]="1"
 
-flag = "LLaMA-7B" ## "Qiming-Alpaca", "ExplanationGenerator", "ExplanationVerifier"
+flag = "ExplanationGenerator" ## "Qiming-Alpaca", "ExplanationGenerator", "ExplanationVerifier"
 if flag == "Qiming-Alpaca":
     load_model_name = "./qiming_alpaca_7B/"
     First_chat = "Qiming-Alpaca: I am Qiming-Alpaca, what questions do you have?"
@@ -24,7 +24,7 @@ elif flag == "LLaMA-7B":
     invitation = "Explanation Generator: "
     human_invitation = "User: "
 elif flag == "ExplanationGenerator":
-    load_model_name = "./Cardiff_Sydney_merged_generator/"
+    load_model_name = "./qiming_alpaca_7B_Cardiff_generator/"
     First_chat = "Explanation Generator: I am an expert in explantion generator, what questions can I help?"
     invitation = "Explanation Generator: "
     human_invitation = "User: "

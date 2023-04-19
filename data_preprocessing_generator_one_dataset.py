@@ -27,6 +27,7 @@ for i in range(1):
         question = str(row["question"])
         numAlts = row["numAlts"]
         total_ratings = row["total_ratings"]
+        avg_rating = row["avg_rating"]
         altA = str(row["altA"])
         altB = str(row["altB"])
         altC = str(row["altC"])
@@ -49,9 +50,6 @@ for i in range(1):
         answer = BeautifulSoup(answer, "html.parser").get_text().strip()
         explanation = BeautifulSoup(explanation, "html.parser").get_text().strip()
         
-        if explanation == "":
-            continue
-        
         question = question.replace("\u00a0", " ")
         altA = altA.replace("\u00a0", " ")
         altB = altB.replace("\u00a0", " ")
@@ -60,34 +58,37 @@ for i in range(1):
         altE = altE.replace("\u00a0", " ")
         explanation = explanation.replace("\u00a0", " ")
         
+        if explanation == "" or avg_rating < 3 or len(explanation.split()) < 10:
+            continue
+        
         if numAlts == 1:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s>" + " Given question: " + question + " </s> Option A: " + altA + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " The correct answer is Option " + answer + ".",
                 "output": explanation
             })
         elif numAlts == 2:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " The correct answer is Option " + answer + ".",
                 "output": explanation
             })
         elif numAlts == 3:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " The correct answer is Option " + answer + ".",
                 "output": explanation
             })
         elif numAlts == 4:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " The correct answer is Option " + answer + ".",
                 "output": explanation
             })
         elif numAlts == 5:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> Option E: " + altE + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " Option E: " + altE + " The correct answer is Option " + answer + ".",
                 "output": explanation
             })
             
@@ -105,9 +106,9 @@ test_list = final_total_list[split_index:]
 
 
 ## 80% data from the final_total_list will be used for training
-with open('./Paul_new_data/Cardiff_generator_train.json', "w") as f:
+with open('./Paul_new_data/Cardiff_generator_train_avg_3_lenexp_10.json', "w") as f:
     json.dump(train_list, f, indent=4)
 
 ## 20% data from the final_total_list will be used for testing and evaluation
-with open('./Paul_new_data/Cardiff_generator_test.json', "w") as f:
+with open('./Paul_new_data/Cardiff_generator_test_avg_3_lenexp_10.json', "w") as f:
     json.dump(test_list, f, indent=4)

@@ -133,15 +133,15 @@ def go(global_step):
         
     msg = ""
     if numOption_msg == '1':
-        msg = " Input: </s>" + " Given question: " + question_msg + " </s> Option A: " + OptionA_msg + " </s> The correct answer is Option " + answer_msg + ". </s> "
+        msg = " Input:" + " Given question: " + question_msg + " Option A: " + OptionA_msg + " The correct answer is Option " + answer_msg
     elif numOption_msg == '2':
-        msg = " Input: </s> Given question: " + question_msg + " </s> Option A: " + OptionA_msg + " </s> Option B: " + OptionB_msg + " </s> The correct answer is Option " + answer_msg + ". </s> "
+        msg = " Input: Given question: " + question_msg + " Option A: " + OptionA_msg + " Option B: " + OptionB_msg + " The correct answer is Option " + answer_msg
     elif numOption_msg == '3':
-        msg = " Input: </s> Given question: " + question_msg + " </s> Option A: " + OptionA_msg + " </s> Option B: " + OptionB_msg + " </s> Option C: " + OptionC_msg + " </s> The correct answer is Option " + answer_msg + ". </s> "
+        msg = " Input: Given question: " + question_msg + " Option A: " + OptionA_msg + " Option B: " + OptionB_msg + " Option C: " + OptionC_msg + " The correct answer is Option " + answer_msg
     elif numOption_msg == '4':
-        msg = " Input: </s> Given question: " + question_msg + " </s> Option A: " + OptionA_msg + " </s> Option B: " + OptionB_msg + " </s> Option C: " + OptionC_msg + " </s> Option D: " + OptionD_msg + " </s> The correct answer is Option " + answer_msg + ". </s> "
+        msg = " Input: Given question: " + question_msg + " Option A: " + OptionA_msg + " Option B: " + OptionB_msg + " Option C: " + OptionC_msg + " Option D: " + OptionD_msg + " The correct answer is Option " + answer_msg
     elif numOption_msg == '5':
-        msg = " Input: </s> Given question: " + question_msg + " </s> Option A: " + OptionA_msg + " </s> Option B: " + OptionB_msg + " </s> Option C: " + OptionC_msg + " </s> Option D: " + OptionD_msg + " </s> Option E: " + OptionE_msg + " </s> The correct answer is Option " + answer_msg + ". </s> "
+        msg = " Input: Given question: " + question_msg + " Option A: " + OptionA_msg + " Option B: " + OptionB_msg + " Option C: " + OptionC_msg + " Option D: " + OptionD_msg + " Option E: " + OptionE_msg + " The correct answer is Option " + answer_msg
     # history.append(human_invitation + msg)
     global global_score_tag, history, response
     response, history = chat_generator.explanationGenerator(history,global_step,msg,global_score_tag,response)

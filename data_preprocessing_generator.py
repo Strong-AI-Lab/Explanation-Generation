@@ -62,31 +62,31 @@ for i in range(3):
         if numAlts == 1:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s>" + " Given question: " + question + " </s> Option A: " + altA + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " The correct answer is Option " + answer,
                 "output": explanation
             })
         elif numAlts == 2:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " The correct answer is Option " + answer,
                 "output": explanation
             })
         elif numAlts == 3:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " The correct answer is Option " + answer,
                 "output": explanation
             })
         elif numAlts == 4:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " The correct answer is Option " + answer,
                 "output": explanation
             })
         elif numAlts == 5:
             total_list[i].append({
                 "instruction": "As an explanation generation expert, can you generate the explanation for the given input?",
-                "input": "</s> Given question: " + question + " </s> Option A: " + altA + " </s> Option B: " + altB + " </s> Option C: " + altC + " </s> Option D: " + altD + " </s> Option E: " + altE + " </s> The correct answer is Option " + answer + ". </s>",
+                "input": "Given question: " + question + " Option A: " + altA + " Option B: " + altB + " Option C: " + altC + " Option D: " + altD + " Option E: " + altE + " The correct answer is Option " + answer,
                 "output": explanation
             })
             

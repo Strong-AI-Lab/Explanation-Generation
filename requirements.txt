@@ -11,3 +11,4 @@ accelerate
 regex
 pandas
 bs4
+bert_score

@@ -11,7 +11,7 @@ import re
 model = None
 tokenizer = None
 generator = None
-os.environ["CUDA_VISIBLE_DEVICES"]="5"
+os.environ["CUDA_VISIBLE_DEVICES"]="0"
 
 flag = "ExplanationVerifier" ## "Qiming-Alpaca", "ExplanationGenerator", "ExplanationVerifier"
 if flag == "Qiming-Alpaca":
