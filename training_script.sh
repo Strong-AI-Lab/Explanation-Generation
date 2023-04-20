@@ -255,7 +255,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=2
    --model_name_or_path vicuna-13b \
    --data_path ./Paul_new_data/Cardiff_generator_train_avg_3_lenexp_10.json \
    --bf16 True \
-   --output_dir LLaMA_13B_Cardiff_generator_avg_3_lenexp_10 \
+   --output_dir vicuna_13B_Cardiff_generator_avg_3_lenexp_10 \
    --model_max_length 512 \
    --num_train_epochs 5 \
    --per_device_train_batch_size 1 \
