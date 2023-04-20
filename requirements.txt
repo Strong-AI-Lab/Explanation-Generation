@@ -13,3 +13,4 @@ pandas
 bs4
 bert_score
 openpyxl
+fschat
