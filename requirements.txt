@@ -2,7 +2,7 @@ numpy
 rouge_score
 fire
 openai
-git+https://github.com/huggingface/transformers  ## Make sure you install the transformers-4.28.0.dev0
+transformers==4.28.1  ## Make sure you install the transformers-4.28.0.dev0 or 4.28.1
 torch
 sentencepiece
 tokenizers==0.12.1
