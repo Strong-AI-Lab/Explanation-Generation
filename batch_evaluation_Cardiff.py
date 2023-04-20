@@ -22,7 +22,7 @@ from tqdm import tqdm
 
 # load_model_name = "./qiming_alpaca_7B_Cardiff_generator/"
 # load_model_name_list = ["./qiming_alpaca_7B_Cardiff_generator/", "./qiming_alpaca_7B/", "./LLaMA_7B_Cardiff_generator/"]
-load_model_name_list = ["./vicuna-13b/", "chavinlo/alpaca-13b", "chavinlo/gpt4-x-alpaca", "chavinlo/Alpaca-65B"]
+load_model_name_list = ["./vicuna-13b/", "chavinlo/alpaca-13b", "chavinlo/gpt4-x-alpaca"]
 path_list = ["./Paul_new_data/"]
 # cardiff_all_question=pd.read_excel(path_list[0]+'Questions.xlsx')
 cardiff_all_question = pd.read_json(path_list[0]+"Cardiff_generator_test.json")
@@ -35,7 +35,6 @@ cardiff_all_question = pd.read_json(path_list[0]+"Cardiff_generator_test.json")
 tag4 = "Vicuna_13B_Cardiff_generator_"
 tag5 = "Alpaca_13B_Cardiff_generator_"
 tag6 = "gpt4_x_alpaca_13B_Cardiff_generator_"
-tag7 = "Alpaca_65B_Cardiff_generator_"
 # cardiff_all_question.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
 # Sydney_all_questions.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
 # Sydney_additionalLTISet_all_questions.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
@@ -46,8 +45,7 @@ total_questions = [cardiff_all_question]
 #               tag3+"cardiff_test_question_generated_explanation"]
 total_list = [tag4+"cardiff_test_question_generated_explanation",
               tag5+"cardiff_test_question_generated_explanation",
-              tag6+"cardiff_test_question_generated_explanation",
-              tag7+"cardiff_test_question_generated_explanation"]
+              tag6+"cardiff_test_question_generated_explanation"]
 def load_model(model_name, eight_bit=0, device_map="auto"):
     global model, tokenizer, generator
 
