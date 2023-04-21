@@ -29,6 +29,16 @@ https://github.com/tatsu-lab/stanford_alpaca/issues/159
 
 ## Data preprocessing
 ### Data preprocessing before training a generator
+Generator means that we use the whole question including question stem, each option, answer as the input and the output is the explanation. 
+~~~bash
+Data Format for generator:
+Instruct: As an explanation generation expert, can you generate the explanation for the given input?
+
+Input: Question, Option A, Option B, Option C, Option D, Option E, The correct answer
+
+Output: Generated Explanation
+~~~
+
 ~~~bash
 python data_preprocessing_generator.py
 ~~~
