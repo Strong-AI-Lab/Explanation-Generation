@@ -13,10 +13,15 @@ pip install -r requirements.txt
 https://github.com/tatsu-lab/stanford_alpaca#fine-tuning
 
 Here are the links that someone has trained and other related models.
+
 Alpaca-7B: https://github.com/tatsu-lab/stanford_alpaca#recovering-alpaca-weights 
+
 Alpaca-13B: https://huggingface.co/chavinlo/alpaca-13b
+
 Vicuna-7B: https://github.com/lm-sys/FastChat#vicuna-7b
+
 Vicuna-13B: https://github.com/lm-sys/FastChat#vicuna-13b
+
 GPT4-x-alpaca: https://huggingface.co/chavinlo/gpt4-x-alpaca
 
 ### More issues about installation and fine-tuning can be referred to the following link.
