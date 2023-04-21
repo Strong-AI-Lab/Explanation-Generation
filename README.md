@@ -12,7 +12,7 @@ pip install -r requirements.txt
 ### We follow the fine-tuning steps from Stanford Alpaca to conduct instruction tunning on LLaMA-7B model and replicate the Alpaca-7B
 https://github.com/tatsu-lab/stanford_alpaca#fine-tuning
 
-Here are the links that someone has trained and other related models.
+#### Here are the links that someone has trained and other related models.
 
 Alpaca-7B: https://github.com/tatsu-lab/stanford_alpaca#recovering-alpaca-weights 
 
