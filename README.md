@@ -112,7 +112,7 @@ To batch evaluate the generator's generated explanation for Cardiff only, you ca
 python batch_evaluation_Cardiff.py
 ~~~
 
-## Potential Research Questions
+## Potential research questions
 1. Save the models from different epochs and to see the explanation generation performance.
 2. Check the hyperparameter for model.generate function and to see how it will change the model output.
 3. Think about how to generate new data and teach model what explanation is better.
