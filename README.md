@@ -65,6 +65,35 @@ You can find the detail training script under `training_script.sh`. In this file
 3. Train a generator using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B (4 A100 80GB GPUs needed) and LLaMA-13B, Alpaca-13B or Vicuna-13B (8 A100 80GB GPUs needed).
 5. Train a verifier way 2 using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
 
+## Fine-tuning example
+Here is an example for fine-tuning Vicuna-13B using Cardiff only average rating score >= 3 and the explanation length >=10 to train a generator. You need to have 8 A100 80GB GPUs.
+~~~bash
+## Fine-tuning the Vicuna-13B using Cardiff only avg >=3 and explanation length >=10 PeerWise dataset for explanation generator
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=2026 train.py \
+   --model_name_or_path vicuna-13b \
+   --data_path ./Paul_new_data/Cardiff_generator_train_avg_3_lenexp_10.json \
+   --bf16 True \
+   --output_dir vicuna_13B_Cardiff_generator_avg_3_lenexp_10 \
+   --model_max_length 512 \
+   --num_train_epochs 5 \
+   --per_device_train_batch_size 1 \
+   --per_device_eval_batch_size 1 \
+   --gradient_accumulation_steps 16 \
+   --evaluation_strategy "no" \
+   --save_strategy "steps" \
+   --save_steps 2000 \
+   --save_total_limit 1 \
+   --learning_rate 2e-5 \
+   --weight_decay 0. \
+   --warmup_ratio 0.03 \
+   --lr_scheduler_type "cosine" \
+   --logging_steps 1 \
+   --fsdp "full_shard auto_wrap" \
+   --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
+   --tf32 True \
+   --gradient_checkpointing True
+~~~
+
 ## Run the program
 To run the program to interact with generator and verifier way 2, you can run the following code. The code will call the method in `chat_generator.py` and `chat_verifier_way2.py`.
 ~~~bash
