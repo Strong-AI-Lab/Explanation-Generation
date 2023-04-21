@@ -64,6 +64,23 @@ Output: Question average rating score
 python data_preprocessing_verifier_way2.py
 ~~~
 
+## Convert the LLaMA into huggingface supported version
+You need to convert the LLaMA into huggingface supported version before you run the script to do experiment.
+~~~bash
+## Convert the LLaMA-7B to LLaMA-7B huggingface model
+python transformers/src/transformers/models/llama/convert_llama_weights_to_hf.py \
+    --input_dir ../../LLaMA/7B \
+    --model_size 7B \
+    --output_dir llama_7B_hf
+~~~
+~~~bash
+## Convert the LLaMA-13B to LLaMA-13B huggingface model
+python transformers/src/transformers/models/llama/convert_llama_weights_to_hf.py \
+    --input_dir ../../LLaMA/13B \
+    --model_size 13B \
+    --output_dir llama_13B_hf
+~~~
+
 ## Running script
 You can find the detail training script under `training_script.sh`. In this file, it includes the commands for the following functions.
 1. Convert the LLaMA model from meta to the huggingface version.
