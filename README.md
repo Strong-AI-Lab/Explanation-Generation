@@ -39,8 +39,14 @@ Input: Question, Option A, Option B, Option C, Option D, Option E, The correct a
 Output: Generated Explanation
 ~~~
 
+To use the whole dataset for the training set, you can run the following command.
 ~~~bash
 python data_preprocessing_generator.py
+~~~
+
+To use the Cardiff only average rating score >= 3 and the explanation length >=10 for the training set, you can run the following command.
+~~~bash
+python data_preprocessing_generator_one_dataset.py
 ~~~
 
 ### Data preprocessing before training a verifier using way 2
@@ -94,10 +100,16 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=2
    --gradient_checkpointing True
 ~~~
 
-## Run the program
+## Run the program to interact with user
 To run the program to interact with generator and verifier way 2, you can run the following code. The code will call the method in `chat_generator.py` and `chat_verifier_way2.py`.
 ~~~bash
 python chat_explanation_verifier_way2.py
+~~~
+
+## Run the program to do batch evaluation
+To batch evaluate the generator's generated explanation for Cardiff only, you can run the follwong command.
+~~~bash
+python batch_evaluation_Cardiff.py
 ~~~
 
 ## Potential Research Questions
