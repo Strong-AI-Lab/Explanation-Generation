@@ -12,6 +12,13 @@ pip install -r requirements.txt
 ### We follow the fine-tuning steps from Stanford Alpaca to conduct instruction tunning on LLaMA-7B model and replicate the Alpaca-7B
 https://github.com/tatsu-lab/stanford_alpaca#fine-tuning
 
+Here are the links that someone has trained and other related models.
+Alpaca-7B: https://github.com/tatsu-lab/stanford_alpaca#recovering-alpaca-weights 
+Alpaca-13B: https://huggingface.co/chavinlo/alpaca-13b
+Vicuna-7B: https://github.com/lm-sys/FastChat#vicuna-7b
+Vicuna-13B: https://github.com/lm-sys/FastChat#vicuna-13b
+GPT4-x-alpaca: https://huggingface.co/chavinlo/gpt4-x-alpaca
+
 ### More issues about installation and fine-tuning can be referred to the following link.
 https://github.com/tatsu-lab/stanford_alpaca/issues/159
 
@@ -39,8 +46,8 @@ python data_preprocessing_verifier_way2.py
 ## Running script
 You can find the detail training script under `training_script.sh`. In this file, it includes the commands for the following functions.
 1. Convert the LLaMA model from meta to the huggingface version.
-2. Instruction tunning for LLaMA-7B using 4 A100 80 GB GPUs to replicate the Alpaca-7B.
-3. Train a generator using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
+2. Instruction tunning for LLaMA-7B using 4 A100 80 GB GPUs to replicate the Alpaca-7B or you can download the weight for Alpaca-7B from [here](https://github.com/tatsu-lab/stanford_alpaca#recovering-alpaca-weights) or other models' weights from as above shown.
+3. Train a generator using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B (4 A100 80GB GPUs needed) and LLaMA-13B, Alpaca-13B or Vicuna-13B (8 A100 80GB GPUs needed).
 5. Train a verifier way 2 using instruction tuning on new PeerWise dataset for using LLaMA-7B or Alpaca-7B.
 
 ## Run the program
