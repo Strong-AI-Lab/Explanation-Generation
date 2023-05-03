@@ -275,6 +275,31 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 --master_port=2
    --tf32 True \
    --gradient_checkpointing True
 
+## Fine-tuning the Vicuna-13B using Sydney all avg >=3 and explanation length >=10 PeerWise dataset for explanation generator
+CUDA_VISIBLE_DEVICES=1,2,3,4,5,6,7 torchrun --nproc_per_node=7 --master_port=2026 train.py \
+   --model_name_or_path vicuna-13b \
+   --data_path ./Paul_new_data/Sydney_all_generator_train_avg_3_lenexp_10.json \
+   --bf16 True \
+   --output_dir vicuna_13B_Sydney_all_generator_avg_3_lenexp_10 \
+   --model_max_length 512 \
+   --num_train_epochs 5 \
+   --per_device_train_batch_size 1 \
+   --per_device_eval_batch_size 1 \
+   --gradient_accumulation_steps 16 \
+   --evaluation_strategy "no" \
+   --save_strategy "steps" \
+   --save_steps 2000 \
+   --save_total_limit 1 \
+   --learning_rate 2e-5 \
+   --weight_decay 0. \
+   --warmup_ratio 0.03 \
+   --lr_scheduler_type "cosine" \
+   --logging_steps 1 \
+   --fsdp "full_shard auto_wrap" \
+   --fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer' \
+   --tf32 True \
+   --gradient_checkpointing True
+
 ## Fine-tuning the Alpaca-7B using new PeerWise dataset for explanation verifier way 1
 CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 --master_port=2024 train.py \
    --model_name_or_path qiming_alpaca_7B \
