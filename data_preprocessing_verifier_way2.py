@@ -8,10 +8,10 @@ import pandas as pd
 import json
 from bs4 import BeautifulSoup
 
-cardiff_all_question=pd.read_excel('./Paul_new_data/Cardiff_all_questions.xlsx')
+# cardiff_all_question=pd.read_excel('./Paul_new_data/Cardiff_all_questions.xlsx')
 Sydney_all_questions=pd.read_excel('./Paul_new_data/Sydney_all_questions.xlsx')
 Sydney_additionalLTISet_all_questions=pd.read_excel('./Paul_new_data/Sydney_additionalLTISet_all_questions.xlsx')
-name_list = ["cardiff_all_question", "Sydney_all_questions", "Sydney_additionalLTISet_all_questions"]
+name_list = ["Sydney_all_questions", "Sydney_additionalLTISet_all_questions"]
 # cardiff_all_question.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
 # Sydney_all_questions.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
 # Sydney_additionalLTISet_all_questions.rename(columns={0:'id',1:'course_id',2:'timestamp',3:'user',4:'avg_rating',5:'total_responses',6:'total_ratings',7:'top_rating_count',8:'avg_difficulty',9:'total_comments',10:'deleted',11:'answer',12:'numAlts',13:'question',14:'altA',15:'altB',16:'altC',17:'altD',18:'altE',19:'explanation'},inplace=1)
@@ -20,9 +20,9 @@ cardiff_all_question_list = []
 Sydney_all_questions_list = []
 Sydney_additionalLTISet_all_questions_list = []
 
-total_questions = [cardiff_all_question, Sydney_all_questions, Sydney_additionalLTISet_all_questions]
-total_list = [cardiff_all_question_list, Sydney_all_questions_list, Sydney_additionalLTISet_all_questions_list]
-for i in range(3):
+total_questions = [Sydney_all_questions, Sydney_additionalLTISet_all_questions]
+total_list = [Sydney_all_questions_list, Sydney_additionalLTISet_all_questions_list]
+for i in range(len(total_list)):
     for index, row in total_questions[i].iterrows():
         question = str(row["question"])
         numAlts = row["numAlts"]
@@ -92,7 +92,15 @@ for i in range(3):
                 "output": avg_rating
             })
         
-final_total_list = total_list[0] + total_list[1] + total_list[2]
+# final_total_list = total_list[0] + total_list[1] + total_list[2]
 
-with open('./Paul_new_data/Cardiff_Sydney_merged_verifier_way_2.json', "w") as f:
+# with open('./Paul_new_data/Cardiff_Sydney_merged_verifier_way_2.json', "w") as f:
+#     json.dump(final_total_list, f, indent=4)
+
+
+final_total_list = []
+for index in range(len(total_list)):
+    final_total_list.extend(total_list[i])
+
+with open('./Paul_new_data/Sydney_merged_verifier_way_2.json', "w") as f:
     json.dump(final_total_list, f, indent=4)
